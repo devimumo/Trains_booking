@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0584E9"
+
+    android:padding="9dp"
+    tools:context=".ParameterActivity">
+
+
+    <include
+        layout="@layout/toolbar_layout"/>
+
+
+    <LinearLayout
+        android:id="@+id/from_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="#34DCDEE0">
+
+
+        <TextView
+            android:id="@+id/nairobi"
+            android:paddingHorizontal="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="From :"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/from_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="Nairobi"
+            android:textColor="#ffffff"
+            android:gravity="center"
+
+            android:textSize="20dp" />
+
+        <Spinner
+            android:id="@+id/from"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+android:clickable="true"
+           android:layout_weight="2"
+            android:layout_toRightOf="@+id/nairobi"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/to_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="#34DCDEE0">
+
+
+        <TextView
+            android:id="@+id/mombasa"
+            android:paddingHorizontal="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="To       :"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/to_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="Mombasa"
+            android:textColor="#ffffff"
+            android:gravity="center"
+
+            android:textSize="20dp" />
+
+
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/to"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+            android:layout_toRightOf="@+id/mombasa" />
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/type_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="#34DCDEE0">
+
+
+        <TextView
+            android:id="@+id/train_type"
+            android:paddingHorizontal="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Type   :"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/type_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+           android:layout_weight="2"
+            android:text="Express"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="20dp" />
+
+
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+
+            android:layout_toRightOf="@+id/train_type" />
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/coach_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="#34DCDEE0">
+
+
+        <TextView
+            android:id="@+id/coach_type"
+            android:paddingHorizontal="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Coach  :"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <TextView
+
+            android:id="@+id/coach_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="One"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="20dp" />
+
+
+
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/coach"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+
+            android:layout_toRightOf="@+id/train_type"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/date_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="#34DCDEE0">
+
+
+
+
+        <TextView
+            android:id="@+id/dates"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="4"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+          android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="#FF5722"
+            android:onClick="det"
+           />
+
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+  android:paddingHorizontal="20dp"
+    android:layout_weight="1"
+    android:onClick="det"
+  android:layout_gravity="center"
+    android:src="@drawable/ic_today_"
+    android:layout_alignParentLeft="true" />
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/seat"
+        android:layout_width="106dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:onClick="seat"
+        android:background="#d9197f"
+        android:text="Choose seat" />
+
+
+</LinearLayout>
+
+
+
+

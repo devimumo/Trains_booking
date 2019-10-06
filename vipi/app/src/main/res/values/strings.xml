@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Trains</string>
+
+
+    <string-array name="from_details">
+        <item>Nairobi</item>
+        <item>Mombasa</item>
+    </string-array>
+
+
+    <string name="shared_preference">com.firstapp.david.trains.shared_preference_data</string>
+    <string name="login_status_preference">com.firstapp.david.trains.login_status_preference</string>
+
+</resources>

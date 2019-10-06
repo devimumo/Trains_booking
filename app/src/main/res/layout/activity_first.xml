@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBE4E4"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    tools:context=".FirstActivity">
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/juu"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ic_shopping">
+        </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/map"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="27"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:weightSum="3"
+            android:background="#7EB1DB">
+
+
+            <ImageView
+                android:id="@+id/free"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:contentDescription="TODO" android:src="@drawable/seat1_a" />
+
+            <ImageView
+                android:id="@+id/reserved"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:contentDescription="TODO" android:src="@drawable/seat1_a" />
+
+            <ImageView
+                android:id="@+id/booked"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+
+                android:contentDescription="TODO" android:src="@drawable/seat1_a" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/cart"
+            android:layout_width="30dp"
+            android:layout_marginHorizontal="3dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignRight="@id/map"
+            android:background="@drawable/ic_carts"
+            >
+
+            <TextView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:id="@+id/cartss"
+                android:text="0"
+
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:textSize="9dp" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:overScrollMode="never">
+
+
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:layout_gravity="center_horizontal"
+            android:padding="7dp">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:weightSum="10"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="4">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:clickable="true"
+                                    android:focusable="true" android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toRightOf="@+id/seat1"
+                                    android:layout_toEndOf="@+id/seat1" android:clickable="true"
+                                    android:focusable="true" android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat5"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat6"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat5" android:layout_toRightOf="@+id/seat5"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat9"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat10"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat9" android:layout_toRightOf="@+id/seat9"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat13"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat14"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat13" android:layout_toRightOf="@+id/seat13"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat17"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat18"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat17" android:layout_toRightOf="@+id/seat17"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat21"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat22"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat21" android:layout_toRightOf="@+id/seat21"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:onClick="onClickListener">
+
+                                <ImageView
+                                    android:id="@+id/seat25"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat26"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat25" android:layout_toRightOf="@+id/seat25"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/seat29"
+                                    android:layout_width="50dp"
+
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat30"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat29"
+                                    android:layout_toRightOf="@+id/seat29"
+                                    android:contentDescription="TODO"
+                                    android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+
+
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="4">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:clickable="true"
+                                    android:focusable="true" android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat4"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toRightOf="@+id/seat3"
+                                    android:layout_toEndOf="@+id/seat3" android:clickable="true"
+                                    android:focusable="true" android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+                                <ImageView
+                                    android:id="@+id/seat7"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat8"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat7" android:layout_toRightOf="@+id/seat7"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat11"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat12"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat11" android:layout_toRightOf="@+id/seat11"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat15"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat16"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat15" android:layout_toRightOf="@+id/seat15"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat19"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat20"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat19" android:layout_toRightOf="@+id/seat19"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat23"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat24"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat23" android:layout_toRightOf="@+id/seat23"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:onClick="onClickListener">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat27"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat28"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat27" android:layout_toRightOf="@+id/seat27"
+                                    android:contentDescription="TODO" android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+
+
+                                <ImageView
+                                    android:id="@+id/seat31"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:contentDescription="TODO"
+                                    android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+                                <ImageView
+                                    android:id="@+id/seat32"
+                                    android:layout_width="50dp"
+                                    android:layout_height="49dp"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:layout_toEndOf="@+id/seat31"
+                                    android:layout_toRightOf="@+id/seat31"
+                                    android:contentDescription="TODO"
+                                    android:onClick="onClickListener"
+                                    android:src="@drawable/seat1_a" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </GridLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
