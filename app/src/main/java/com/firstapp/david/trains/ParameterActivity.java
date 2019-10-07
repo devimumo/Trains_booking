@@ -189,7 +189,7 @@ TextView ttt=findViewById(R.id.from_text);
 from__.setOnItemSelectedListener(frooom);
 
 
-
+//jjjjj
 
 
         to__.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
