@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ParameterActivity extends AppCompatActivity {
+public class ParameterActivity extends AppCompatActivity{
 
 private Toolbar toolbar;
 
@@ -65,7 +65,7 @@ ArrayAdapter<String> kutoka;
         getdetails();
 
         //ArrayList<String> from_=new ArrayList<>();
-        final  ArrayList<String> from_all=new ArrayList<>();
+        final  ArrayList<String> from_all=new ArrayList();
         ArrayList<String> to_=new ArrayList<>();
        final  ArrayList<String> to_all=new ArrayList<>();
         ArrayList<String> type_=new ArrayList<>();
@@ -132,7 +132,7 @@ ArrayAdapter<String> kutoka;
 
 
 
-      Spinner from__=findViewById(R.id.from);
+      final Spinner from__=findViewById(R.id.from);
       Spinner to__=findViewById(R.id.to);
         Spinner train__=findViewById(R.id.type);
 
@@ -142,8 +142,10 @@ ArrayAdapter<String> kutoka;
 //spinner for from values
 
 
-        kutoka=new ArrayAdapter<String>(this,android.R.layout.simple_selectable_list_item
-                ,android.R.id.text1,from_all);
+
+
+      ArrayAdapter<String>  kutoka=new ArrayAdapter<String>(this,R.layout.from_spinner,R.id.spinner_from,from_all);
+     // kutoka.setDropDownViewResource(android.R.layout.simple_spinner_item);
         from__.setAdapter(kutoka);
 
 
@@ -154,8 +156,8 @@ ArrayAdapter<String> kutoka;
 
         //spinner for to value
 
-        ArrayAdapter<String> to_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,to_all);
-        to_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> to_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,to_all);
+       // to_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          to__.setAdapter(to_adapter);
 
 
@@ -165,47 +167,26 @@ ArrayAdapter<String> kutoka;
          type_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          train__.setAdapter(type_adapter);
 
-
-
-
-
-
-
-
-        from__.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        AdapterView.OnItemSelectedListener frooom=new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-switch (position)
-{
-    case 0:
-        Toast.makeText(ParameterActivity.this, "Selecetd this", Toast.LENGTH_SHORT).show();
-        break;
-
-    case 1:
-        Toast.makeText(ParameterActivity.this, "selected second", Toast.LENGTH_SHORT).show();
-        break;
-
-        default:
-            Toast.makeText(ParameterActivity.this, "Why now", Toast.LENGTH_SHORT).show();
-    break;
-
-}
-String selected_from=parent.getItemAtPosition(position).toString();
-                Toast.makeText(ParameterActivity.this, "selected"+selected_from, Toast.LENGTH_SHORT).show();
-TextView from_text=findViewById(R.id.from_text);
-from_text.setText(selected_from);
-view.setClickable(true);
+                String text=parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
 
 
+TextView ttt=findViewById(R.id.from_text);
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        };
 
+
+
+from__.setOnItemSelectedListener(frooom);
 
 
 
@@ -220,6 +201,8 @@ view.setClickable(true);
                 TextView to_text=findViewById(R.id.to_text);
                 to_text.setText(selected_to);
 
+              //  Toast.makeText(ParameterActivity.this, "nnnnnnnnnnnnnn", Toast.LENGTH_SHORT).show();
+                Toast.makeText(adapterView.getContext(),selected_to,Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -363,10 +346,6 @@ String maxdate=""+(day+10)+"-"+month+"-"+year;
 
 
     }
-
-
-
-
 
 
 

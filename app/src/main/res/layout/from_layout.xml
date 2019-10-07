@@ -9,7 +9,7 @@
         android:id="@+id/txt"
         android:hint="from"
         android:layout_width="wrap_content"
-        android:text="Departure"
+
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_height="wrap_content" />
