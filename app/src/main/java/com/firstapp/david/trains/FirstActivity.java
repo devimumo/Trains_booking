@@ -81,7 +81,7 @@ checking_log();
     //  s1.setColorFilter(Color.parseColor("#BD1E1E"));
     free.setColorFilter(Color.parseColor("#56C412"));
     reserved.setColorFilter(Color.parseColor("#d9197f"));
-    booked.setColorFilter(Color.parseColor("#61555C"));
+    booked.setColorFilter(Color.parseColor("#443737"));
 
 
     Intent datess = getIntent();
@@ -143,6 +143,7 @@ cart.setOnClickListener(new View.OnClickListener() {
     unselectedSeats = new ArrayList<>();
     filledSeats = new ArrayList<>();
     selectedSeats = new ArrayList<>();
+
 
   }
 
@@ -773,11 +774,11 @@ cart.setOnClickListener(new View.OnClickListener() {
                       if (state.equals("booked")) {
                         ////////////////////////////////////////////////////////////////
 
-                        seatList.get(i).setColorFilter(Color.parseColor("#61555C"));
+                        seatList.get(i).setColorFilter(Color.parseColor("#443737"));
                         seatList.get(i).setClickable(false);
 
                         String ff= seat_no[i];
-
+                         // "#61555C"
                         filledSeats.add(ff);
 
                         //////////////////////////////////////////////////////////////////////////////////
