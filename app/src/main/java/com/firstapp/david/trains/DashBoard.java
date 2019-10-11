@@ -63,7 +63,7 @@ CardView book_ticket,check_ticku,setting,admin;
 
 
 toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+      //  setSupportActionBar(toolbar);
 
 
         seat = findViewById(R.id.seat_icon);

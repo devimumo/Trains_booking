@@ -1,5 +1,6 @@
 package com.firstapp.david.trains;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -47,7 +48,8 @@ public class FirstActivity extends AppCompatActivity {
 
   ArrayList<ImageView> seatList;
   // int i;
-  ProgressDialog  progressDoalog ;
+ ProgressDialog  progressDoalog ;
+    private static ProgressDialog mProgressDialog;
 
   public String seat_no[] = {"seat1_a", "seat1_b", "seat1_c", "seat1_d", "seat2_a", "seat2_b", "seat2_c", "seat2_d", "seat3_a", "seat3_b", "seat3_c", "seat3_d", "seat4_a", "seat4_b", "seat4_c",
           "seat4_d", "seat5_a", "seat5_b", "seat5_c", "seat5_d", "seat6_a", "seat6_b", "seat6_c", "seat6_d", "seat7_a", "seat7_b", "seat7_c", "seat7_d", "seat8_a", "seat8_b", "seat8_c", "seat8_d"};
@@ -61,11 +63,13 @@ public class FirstActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_first);
-    setTitle("Coach One");
+      showSimpleProgressDialog(this, "Loading...","Fetching Json",false);
+
+
+      setTitle("Coach One");
     toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 RelativeLayout cart=findViewById(R.id.cart);
-
 
 
 checking_log();
@@ -727,7 +731,7 @@ cart.setOnClickListener(new View.OnClickListener() {
   //function to get status of all seats on opening of coach activity
   public  void  Setstatus () {
 
-      progressDoalog = new ProgressDialog(this);
+     progressDoalog = new ProgressDialog(this);
       progressDoalog.setMax(100);
       progressDoalog.setMessage("Tickets loading....");
       progressDoalog.setIndeterminate(true);
@@ -919,6 +923,8 @@ Setstatus_for_current_user(i);
 
     RequestQueue requestQueue= Volley.newRequestQueue(FirstActivity.this);
     requestQueue.add(stringRequest);
+
+    removeSimpleProgressDialog();
   }
 
   public  void  Setstatus_for_current_user (final int i) {
@@ -1106,7 +1112,46 @@ else
 
 
 
+    public static void removeSimpleProgressDialog() {
+        try {
+       // Dialog mProgressDialog = null;
+        if (mProgressDialog != null) {
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                    mProgressDialog = null;
+                }
+            }
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
 
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void showSimpleProgressDialog(Context context, String title,
+                                                String msg, boolean isCancelable) {
+        try {
+            if (mProgressDialog == null) {
+                mProgressDialog = ProgressDialog.show(context, title, msg);
+                mProgressDialog.setCancelable(isCancelable);
+            }
+
+            if (!mProgressDialog.isShowing()) {
+                mProgressDialog.show();
+            }
+
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

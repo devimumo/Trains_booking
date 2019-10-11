@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +35,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ParameterActivity extends AppCompatActivity{
+public class ParameterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    //implements AdapterView.OnItemSelectedListener
 
 private Toolbar toolbar;
 
@@ -47,7 +52,7 @@ ArrayAdapter<String> kutoka;
 
 
         toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       // setSupportActionBar(toolbar);
 
 
         TextView dates=findViewById(R.id.dates);
@@ -65,7 +70,7 @@ ArrayAdapter<String> kutoka;
         getdetails();
 
         //ArrayList<String> from_=new ArrayList<>();
-        final  ArrayList<String> from_all=new ArrayList();
+       final  ArrayList<String> from_all=new ArrayList();
         ArrayList<String> to_=new ArrayList<>();
        final  ArrayList<String> to_all=new ArrayList<>();
         ArrayList<String> type_=new ArrayList<>();
@@ -101,6 +106,7 @@ ArrayAdapter<String> kutoka;
                                 }*/
 
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -112,10 +118,18 @@ ArrayAdapter<String> kutoka;
             public void onErrorResponse(VolleyError error) {
 
             }
+
         } );
 
         RequestQueue requestQueue= Volley.newRequestQueue(ParameterActivity.this);
         requestQueue.add(stringRequest);
+
+
+
+
+
+
+
 
 
 
@@ -130,9 +144,9 @@ ArrayAdapter<String> kutoka;
         {date.append( from_adapt.get(i).toString());
         }*/
 
+        MaterialSpinner spinner_trial=findViewById(R.id.spinner_trial);
 
-
-      final Spinner from__=findViewById(R.id.from);
+      final  Spinner from__=findViewById(R.id.from);
       Spinner to__=findViewById(R.id.to);
         Spinner train__=findViewById(R.id.type);
 
@@ -142,54 +156,40 @@ ArrayAdapter<String> kutoka;
 //spinner for from values
 
 
+spinner_trial.setItems(from_all);
+spinner_trial.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+        Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_LONG).show();
+    }
+});
 
-
-      ArrayAdapter<String>  kutoka=new ArrayAdapter<String>(this,R.layout.from_spinner,R.id.spinner_from,from_all);
-     // kutoka.setDropDownViewResource(android.R.layout.simple_spinner_item);
+       ArrayAdapter<String>  kutoka=new ArrayAdapter<String>(ParameterActivity.this,android.R.layout.simple_spinner_dropdown_item,from_all);
+      //kutoka.setDropDownViewResource(android.R.layout.simple_list_item_1);
         from__.setAdapter(kutoka);
+        kutoka.notifyDataSetChanged();
 
-
-
-      /*  ArrayAdapter from_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_selectable_list_item, from_all);
-        from_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        from__.setAdapter(from_adapter);*/
-
-        //spinner for to value
 
         ArrayAdapter<String> to_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,to_all);
        // to_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          to__.setAdapter(to_adapter);
 
 
+
+   from__.setOnItemSelectedListener(this);
          // spinner for type value
 
          ArrayAdapter<String> type_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,type_all);
          type_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          train__.setAdapter(type_adapter);
 
-        AdapterView.OnItemSelectedListener frooom=new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String text=parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
-
-
-TextView ttt=findViewById(R.id.from_text);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        };
 
 
 
-from__.setOnItemSelectedListener(frooom);
 
 
-//jjjjj
+
+
 
 
         to__.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -201,7 +201,7 @@ from__.setOnItemSelectedListener(frooom);
                 TextView to_text=findViewById(R.id.to_text);
                 to_text.setText(selected_to);
 
-              //  Toast.makeText(ParameterActivity.this, "nnnnnnnnnnnnnn", Toast.LENGTH_SHORT).show();
+               Toast.makeText(ParameterActivity.this, "nnnnnnnnnnnnnn", Toast.LENGTH_SHORT).show();
                 Toast.makeText(adapterView.getContext(),selected_to,Toast.LENGTH_LONG).show();
             }
 
@@ -348,5 +348,19 @@ String maxdate=""+(day+10)+"-"+month+"-"+year;
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+Spinner spp=findViewById(R.id.from);
+        String providerj =spp.getSelectedItem().toString();
+        String provider = parent.getItemAtPosition(position).toString();
+        Snackbar.make(view, "Clicked " + provider, Snackbar.LENGTH_LONG).show();
+        // Showing selected spinner item
+       // Toast.makeText(this,from_all.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
