@@ -10,6 +10,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -941,6 +943,8 @@ Setstatus_for_current_user(i);
                 try {
                   JSONObject jsonObject=new JSONObject(subject);
                    String log=jsonObject.getString("log");
+
+
 
                   //JSONArray jsonArray=new JSONArray(response);
 

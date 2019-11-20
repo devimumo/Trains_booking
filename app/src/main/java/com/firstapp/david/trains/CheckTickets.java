@@ -10,6 +10,7 @@ package com.firstapp.david.trains;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
+        import android.util.Log;
         import android.widget.ProgressBar;
         import android.widget.Toast;
 
@@ -76,6 +77,11 @@ ProgressBar progress;
 
     private void loadTicketsData() {
 
+        final ProgressDialog progressbar = new ProgressDialog(CheckTickets.this);
+        progressbar.setMessage("Loading..........");
+        progressbar.setCancelable(false);
+        progressbar.show();
+
 
         final String seat_no[] = {"seat1_a", "seat1_b", "seat1_c", "seat1_d", "seat2_a", "seat2_b", "seat2_c", "seat2_d", "seat3_a", "seat3_b", "seat3_c", "seat3_d", "seat4_a", "seat4_b", "seat4_c",
                 "seat4_d", "seat5_a", "seat5_b", "seat5_c", "seat5_d", "seat6_a", "seat6_b", "seat6_c", "seat6_d", "seat7_a", "seat7_b", "seat7_c", "seat7_d", "seat8_a", "seat8_b", "seat8_c", "seat8_d"};
@@ -85,6 +91,9 @@ ProgressBar progress;
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String tickets_data) {
+
+                        Log.d("see",tickets_data);
+
 
                         try {
 
@@ -127,8 +136,12 @@ ProgressBar progress;
                                 Toast.makeText(CheckTickets.this, "No chosen tickets", Toast.LENGTH_SHORT).show();
                             }
 
+
+                            progressbar.dismiss();
+
                         } catch (JSONException e) {
 
+                            progressbar.dismiss();
 
                             Toast.makeText(CheckTickets.this, " catch error" + e.toString(), Toast.LENGTH_LONG).show();
                             e.printStackTrace();
@@ -139,6 +152,8 @@ ProgressBar progress;
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressbar.dismiss();
+
 
                 Toast.makeText(CheckTickets.this, " error ya leo" + error.toString(), Toast.LENGTH_SHORT).show();
 

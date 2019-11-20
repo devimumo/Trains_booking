@@ -42,44 +42,54 @@ public class Check_tickets_list_item {
 
 
 
-    public String getPassenger_name() {
+    public String getPassenger_name()
+    {
         return passenger_name;
     }
-    public String getPhone_number() {
+    public String getPhone_number()
+    {
         return phone_number;
     }
-    public String getTarehe() {
+    public String getTarehe()
+    {
         return tarehe;
     }
 
-    public String getFrom() {
+    public String getFrom()
+    {
         return from;
     }
-    public String getDeparture_time() {
+    public String getDeparture_time()
+    {
         return departure_time;
     }
 
-    public String getTo() {
+    public String getTo()
+    {
         return to;
     }
 
-    public String getArrival_time() {
+    public String getArrival_time()
+    {
         return arrival_time;
     }
 
-
-    public String getSeat_no() {
+    public String getSeat_no()
+    {
         return seat_no;
     }
 
-    public String getTrain_type() {
+    public String getTrain_type()
+    {
         return train_type;
     }
 
-    public String getCoach_no() {
+    public String getCoach_no()
+    {
         return coach_no;
     }
-    public String getAmount() {
+    public String getAmount()
+    {
         return amount;
     }
 }

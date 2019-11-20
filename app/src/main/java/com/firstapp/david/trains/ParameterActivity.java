@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class ParameterActivity extends AppCompatActivity implements AdapterView.
     //implements AdapterView.OnItemSelectedListener
 
 private Toolbar toolbar;
+    public ProgressBar progress;
 
 ArrayAdapter<String> kutoka;
 
@@ -49,8 +51,9 @@ ArrayAdapter<String> kutoka;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parameter);
-
-
+        progress=findViewById(R.id.progress);
+        progress.setVisibility(View.VISIBLE);
+       // login.setVisibility(View.GONE);
         toolbar=findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
 
@@ -76,7 +79,7 @@ ArrayAdapter<String> kutoka;
         ArrayList<String> type_=new ArrayList<>();
        final   ArrayList<String> type_all=new ArrayList<>();
 
-
+        progress.setVisibility(View.GONE);
 
         String URL_DETAILS="http://project-daudi.000webhostapp.com/android_login_register/details.php";
         StringRequest stringRequest=new StringRequest(Request.Method.GET,URL_DETAILS,
